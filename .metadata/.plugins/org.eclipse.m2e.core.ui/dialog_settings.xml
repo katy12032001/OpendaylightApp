@@ -14,6 +14,10 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="/home/katy/katy/code/hsnl_odl_stablehelium_code/hsnl_odl_bundle_flowclassificationr_hm/hsnl_odl_bundle_flowclassification_service"/>
+			<item value="/home/katy/katy/code/hsnl_odl_stablehelium_code/hsnl_odl_bundle_flowclassificationr_hm/hsnl_odl_bundle_flowclassification_provider"/>
+			<item value="/home/katy/katy/code/hsnl_odl_stablehelium_code/hsnl_odl_bundle_flowclassificationr_hm/hsnl_odl_bundle_flowclassification_northbound"/>
+			<item value="/home/katy/katy/code/hsnl_odl_stablehelium_code/hsnl_odl_bundle_flowclassificationr_hm/hsnl_odl_bundle_flowclassification_model"/>
 			<item value="/home/katy/katy/Controller/stable_helium_b/stable_helium_code/hsnl_odl_bundle_pushmeter"/>
 			<item value="/home/katy/katy/Controller/stable_helium_b/stable_helium_code/hsnl_odl_bundle_pushflow_hm"/>
 			<item value="/home/katy/katy/Controller/stable_helium_b/stable_helium_code/hsnl_odl_bundle_monitor_hm"/>
@@ -25,7 +29,6 @@
 			<item value="/home/katy/katy/Controller/stable_helium_b/stable_helium_code/hsnl_odl_bundle_flowclassificationr_hm/hsnl_odl_bundle_flowclassification_model"/>
 			<item value="/home/katy/katy/Controller/stable_helium_b/stable_helium_code/hsnl_odl_bundle_evaluator_hm"/>
 			<item value="/home/katy/katy/Controller/stable_helium_b/stable_helium_code/hsnl_odl_bundle_dynamicroute_hm"/>
-			<item value="/home/katy/katy/Controller/stable_helium_b/stable_helium_code/hsnl_odl_bundle_arphandler_hm"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

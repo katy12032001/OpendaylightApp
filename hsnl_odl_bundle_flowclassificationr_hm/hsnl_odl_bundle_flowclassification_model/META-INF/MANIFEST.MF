@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1422598155665
-Build-Jdk: 1.7.0_76
+Bnd-LastModified: 1430651910451
+Build-Jdk: 1.7.0_80
 Built-By: katy
 Bundle-ManifestVersion: 2
 Bundle-Name: org.opendaylight.controller.model.hsnl_flowclassification_m

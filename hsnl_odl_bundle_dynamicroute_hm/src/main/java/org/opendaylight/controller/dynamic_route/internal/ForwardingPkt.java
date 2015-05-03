@@ -574,17 +574,17 @@ public class ForwardingPkt implements IListenDataPacket{
 	                    		break;
 	                    	}
 	                    }
+	                    
+	                    List<NodeConnector> f_path = dr.getPath();
+	                    programFlow(pkt, incomingNodeConnector, f_path.get(0), dstMAC,
+	                            srcMAC, false, 0);
+	                    for (int i = 1; i < f_path.size() - 1; i = i + 2) {
+	                        programFlow(pkt, f_path.get(i), f_path.get(i + 1), dstMAC,
+	                                srcMAC, false, 0);
+	                    }
+	                    programFlow(pkt, f_path.get(f_path.size() - 1), dst_nc, dstMAC,
+	                            srcMAC, false, 0);
 	                    if(check != 1) {
-	                    	List<NodeConnector> f_path = dr.getPath();
-		                    programFlow(pkt, incomingNodeConnector, f_path.get(0), dstMAC,
-		                            srcMAC, false, 0);
-		                    for (int i = 1; i < f_path.size() - 1; i = i + 2) {
-		                        programFlow(pkt, f_path.get(i), f_path.get(i + 1), dstMAC,
-		                                srcMAC, false, 0);
-		                    }
-		                    programFlow(pkt, f_path.get(f_path.size() - 1), dst_nc, dstMAC,
-		                            srcMAC, false, 0);
-		                    
 		                    List<NodeConnector> f_path2 = new ArrayList<NodeConnector>();
 		                    f_path2.add(incomingNodeConnector);
 		                    f_path2.addAll(f_path);
@@ -633,9 +633,10 @@ public class ForwardingPkt implements IListenDataPacket{
 	                    		break;
 	                    	}
 	                    }
+	                    
+	                    programFlow(pkt, incomingNodeConnector, dst_nc, dstMAC, srcMAC,false, 0);
 	                	if(check != 1){ 
-	                		programFlow(pkt, incomingNodeConnector, dst_nc, dstMAC, srcMAC,false, 0);
-	                        
+	                		
 	                        List<NodeConnector> f_path = new ArrayList<NodeConnector>();
 	                        f_path.add(incomingNodeConnector);
 	                        f_path.add(dst_nc);

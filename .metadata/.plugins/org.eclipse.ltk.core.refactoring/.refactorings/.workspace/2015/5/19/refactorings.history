@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 4 resources" deleteContents="false" description="Delete 4 resources" element1="/hsnl_flowclassification_model" element2="/hsnl_flowclassification_northbound" element3="/hsnl_flowclassification_provider" element4="/hsnl_flowclassification_service" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="4" stamp="1430651896736"/>
+</session>

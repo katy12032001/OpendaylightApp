@@ -1720,3 +1720,59 @@ java.io.FileNotFoundException:
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2015-05-03 14:18:38.835
 !MESSAGE Manifest org.opendaylight.controller:hsnl_dynamic_route:bundle:0.0.1 : Export org.opendaylight.controller.dynamic_route.internal,  has 3,  private references [net.floodlightcontroller.flowclassification, org.opendaylight.controller.monitor, net.floodlightcontroller.authentication], 
+!SESSION 2015-05-03 19:17:34.229 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.7.0_80
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.m2e.logback.configuration 2 0 2015-05-03 19:17:37.768
+!MESSAGE Exception while setting up logging:org.eclipse.osgi.internal.framework.EquinoxConfiguration$1 cannot be cast to java.lang.String
+!STACK 0
+java.lang.ClassCastException: org.eclipse.osgi.internal.framework.EquinoxConfiguration$1 cannot be cast to java.lang.String
+	at org.eclipse.m2e.logback.configuration.LogHelper.logJavaProperties(LogHelper.java:26)
+	at org.eclipse.m2e.logback.configuration.LogPlugin.loadConfiguration(LogPlugin.java:189)
+	at org.eclipse.m2e.logback.configuration.LogPlugin.configureLogback(LogPlugin.java:144)
+	at org.eclipse.m2e.logback.configuration.LogPlugin.access$2(LogPlugin.java:107)
+	at org.eclipse.m2e.logback.configuration.LogPlugin$1.run(LogPlugin.java:62)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-05-03 19:17:48.305
+!MESSAGE Manifest org.opendaylight.controller:hsnl_flowclassification_provider:bundle:0.0.1 : Instructions in Export-Package that are never used: org\.opendaylight\.controller\.test
+Classpath: Jar:.,Jar:sal,Jar:commons-lang3,Jar:org.apache.felix.dependencymanager,Jar:org.osgi.compendium,Jar:slf4j-api,Jar:sal-binding-api,Jar:guava,Jar:sal-common-api,Jar:concepts,Jar:sal-common-util,Jar:sal-compatibility,Jar:clustering.services,Jar:jboss-transaction-api_1.1_spec,Jar:sal-binding-util,Jar:model-flow-statistics,Jar:model-topology,Jar:ietf-topology,Jar:org.eclipse.xtend.lib,Jar:org.eclipse.xtext.xbase.lib,Jar:statisticsmanager,Jar:forwardingrulesmanager,Jar:switchmanager,Jar:configuration,Jar:hsnl_flowclassification_model,Jar:ietf-inet-types,Jar:ietf-yang-types,Jar:yang-ext,Jar:model-flow-base,Jar:opendaylight-l2-types,Jar:model-flow-service,Jar:model-inventory,Jar:yang-binding,Jar:yang-common,Jar:org.osgi.core
+
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-05-03 19:17:48.307
+!MESSAGE Manifest org.opendaylight.controller:hsnl_flowclassification_provider:bundle:0.0.1 : Superfluous export-package instructions: [org.opendaylight.controller.test]
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-05-03 19:17:48.988
+!MESSAGE Manifest org.opendaylight.controller:hsnl_flowclassification_provider:bundle:0.0.1 : Instructions in Export-Package that are never used: org\.opendaylight\.controller\.test
+Classpath: Jar:.,Jar:sal,Jar:commons-lang3,Jar:org.apache.felix.dependencymanager,Jar:org.osgi.compendium,Jar:slf4j-api,Jar:sal-binding-api,Jar:guava,Jar:sal-common-api,Jar:concepts,Jar:sal-common-util,Jar:sal-compatibility,Jar:clustering.services,Jar:jboss-transaction-api_1.1_spec,Jar:sal-binding-util,Jar:model-flow-statistics,Jar:model-topology,Jar:ietf-topology,Jar:org.eclipse.xtend.lib,Jar:org.eclipse.xtext.xbase.lib,Jar:statisticsmanager,Jar:forwardingrulesmanager,Jar:switchmanager,Jar:configuration,Jar:hsnl_flowclassification_model,Jar:ietf-inet-types,Jar:ietf-yang-types,Jar:yang-ext,Jar:model-flow-base,Jar:opendaylight-l2-types,Jar:model-flow-service,Jar:model-inventory,Jar:yang-binding,Jar:yang-common,Jar:org.osgi.core
+
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-05-03 19:17:48.988
+!MESSAGE Manifest org.opendaylight.controller:hsnl_flowclassification_provider:bundle:0.0.1 : Superfluous export-package instructions: [org.opendaylight.controller.test]
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-05-03 19:18:29.518
+!MESSAGE Naming conflict for type 'org.opendaylight.yang.gen.v1.urn.nthu.hsnl.md.example.rev150105.Transmit5TupleOutput': file with same name already exists and will not be generated.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-05-03 19:18:29.524
+!MESSAGE Naming conflict for type 'org.opendaylight.yang.gen.v1.urn.nthu.hsnl.md.example.rev150105.Transmit5TupleOutput': file with same name already exists and will not be generated.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-05-03 19:18:29.524
+!MESSAGE Naming conflict for type 'org.opendaylight.yang.gen.v1.urn.nthu.hsnl.md.example.rev150105.Transmit5TupleInput': file with same name already exists and will not be generated.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-05-03 19:18:29.529
+!MESSAGE Naming conflict for type 'org.opendaylight.yang.gen.v1.urn.nthu.hsnl.md.example.rev150105.Transmit5TupleInput': file with same name already exists and will not be generated.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-05-03 19:18:29.530
+!MESSAGE Naming conflict for type 'org.opendaylight.yang.gen.v1.urn.nthu.hsnl.md.example.rev150105.FlowclassificationService': file with same name already exists and will not be generated.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-05-03 19:19:40.520
+!MESSAGE Manifest org.opendaylight.controller:hsnl_dynamic_route:bundle:0.0.1 : Export org.opendaylight.controller.dynamic_route.internal,  has 3,  private references [net.floodlightcontroller.flowclassification, org.opendaylight.controller.monitor, net.floodlightcontroller.authentication], 
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-05-03 19:20:53.284
+!MESSAGE Manifest org.opendaylight.controller:hsnl_dynamic_route:bundle:0.0.1 : Export org.opendaylight.controller.dynamic_route.internal,  has 3,  private references [net.floodlightcontroller.flowclassification, net.floodlightcontroller.authentication, org.opendaylight.controller.monitor], 
