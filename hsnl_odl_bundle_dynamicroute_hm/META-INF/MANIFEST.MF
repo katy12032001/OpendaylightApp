@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1430635122628
+Build-Jdk: 1.7.0_80
+Built-By: katy
+Bundle-Activator: org.opendaylight.controller.dynamic_route.internal.Act
+ ivator
+Bundle-ManifestVersion: 2
+Bundle-Name: hsnl_dynamic_route
+Bundle-SymbolicName: org.opendaylight.controller.hsnl_dynamic_route
+Bundle-Version: 0.0.1
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.opendaylight.controller.dynamic_route.internal;uses:
+ ="org.apache.felix.dm,org.opendaylight.controller.Mac_Mapping.internal,
+ org.opendaylight.controller.forwardingrulesmanager,org.opendaylight.con
+ troller.hosttracker,org.opendaylight.controller.sal.core,org.opendaylig
+ ht.controller.sal.packet,org.slf4j";version="0.0.1"
+Import-Package: org.apache.felix.dm;version="[3.0,4)",org.opendaylight.c
+ ontroller.Mac_Mapping.internal;version="[0.0,1)",org.opendaylight.contr
+ oller.forwardingrulesmanager;version="[0.6,1)",org.opendaylight.control
+ ler.hosttracker;version="[0.5,1)",org.opendaylight.controller.sal.core;
+ version="[0.8,1)",org.opendaylight.controller.sal.flowprogrammer;versio
+ n="[0.8,1)",org.opendaylight.controller.sal.packet;version="[0.8,1)",or
+ g.opendaylight.controller.sal.utils;version="[0.8,1)",org.opendaylight.
+ controller.switchmanager;version="[0.7,1)",org.opendaylight.controller.
+ topologymanager;version="[0.4,1)",org.slf4j;version="[1.7,2)"
+Tool: Bnd-2.1.0.20130426-122213

@@ -1,0 +1,126 @@
+package org.opendaylight.controller.flowcheck;
+
+import java.net.InetAddress;
+
+import org.opendaylight.controller.dynamic_route.internal.ForwardingPkt;
+import org.opendaylight.controller.sal.core.Node;
+import org.opendaylight.controller.sal.flowprogrammer.Flow;
+import org.opendaylight.controller.sal.match.MatchType;
+
+public class FlowCheck {
+	private String TarNode;
+	private String SrcIP;
+	private String DstIP;
+	private String SrcMAC;
+	private String DstMAC;
+	private String SrcPort;
+	private String DstPort;
+	
+	public FlowCheck(String TarSwitch, String SrcIP, String DstIP, String SrcMAC, String DstMAC, String SrcPort, String DstPort) {
+        this.TarNode = TarSwitch;
+        this.SrcIP = SrcIP;
+        this.DstIP = DstIP;
+        this.SrcMAC = SrcMAC;
+        this.DstMAC = DstMAC;
+        this.SrcPort = SrcPort;
+        this.DstPort = DstPort;
+    }
+	
+	public String get_TarNode(){
+		return this.TarNode;
+	}
+	public String get_SrcIP(){
+		return this.SrcIP;
+	}
+	
+	public String get_DstIP(){
+		return this.DstIP;
+	}
+	
+	public String get_SrcMAC(){
+		return this.SrcMAC;
+	}
+	
+	public String get_DstMAC(){
+		return this.DstMAC;
+	}
+	
+	public String get_SrcPort(){
+		return this.SrcPort;
+	}
+	
+	public String get_DstPort(){
+		return this.DstPort;
+	}
+	
+	public void set_TarNode(String node){
+		this.TarNode = node;
+	}
+	public void set_SrcIP(String SrcIP){
+		this.SrcIP = SrcIP;
+	}
+	
+	public void set_DstIP(String DstIP){
+		this.DstIP = DstIP;
+	}
+	
+	public void set_SrcMAC(String SrcMAC){
+		this.SrcMAC = SrcMAC;
+	}
+	
+	public void set_DstMAC(String DstMAC){
+		this.DstMAC = DstMAC;
+	}
+	
+	public void set_SrcPort(String SrcPort){
+		this.SrcPort = SrcPort;
+	}
+	
+	public void set_DstPort(String DstPort){
+		this.DstPort = DstPort;
+	}
+	
+	public int CheckRemoveFlow() {
+    	int check = -1;
+    	System.out.println("[Info]org.opendaylight.controller.flowcheck.FlowCheck\n"+"->"+TarNode);
+    	System.out.println("\n->"+ForwardingPkt.map_outQueue.get(TarNode).size());
+    	for(int i=0 ; i<ForwardingPkt.map_outQueue.get(TarNode.toString()).size() ; i++){
+    		/*
+    		System.out.println(TarNode.toString()+"  "+i+"  "+ForwardingPkt.map_outQueue.get(TarNode.toString()).get(i).getSrcIP()+"  "+this.SrcIP +" "+ForwardingPkt.map_outQueue.get(TarNode.toString()).get(i).getSrcIP().equalsIgnoreCase(this.SrcIP) );
+    		System.out.println(TarNode.toString()+"  "+i+"  "+ForwardingPkt.map_outQueue.get(TarNode.toString()).get(i).getDstIP()+"  "+this.DstIP+" "+ForwardingPkt.map_outQueue.get(TarNode.toString()).get(i).getDstIP().equalsIgnoreCase(this.DstIP));
+    		System.out.println(TarNode.toString()+"  "+i+"  "+getMacAddress(ForwardingPkt.map_outQueue.get(TarNode.toString()).get(i).getSrcMAC())+" "+this.SrcMAC+" "+getMacAddress(ForwardingPkt.map_outQueue.get(TarNode.toString()).get(i).getSrcMAC()).equalsIgnoreCase(this.SrcMAC));
+    		System.out.println(TarNode.toString()+"  "+i+"  "+getMacAddress(ForwardingPkt.map_outQueue.get(TarNode.toString()).get(i).getDstMAC())+" "+this.DstMAC+" "+getMacAddress(ForwardingPkt.map_outQueue.get(TarNode.toString()).get(i).getDstMAC()).equalsIgnoreCase(this.DstMAC));
+    		System.out.println(TarNode.toString()+"  "+i+"  "+ForwardingPkt.map_outQueue.get(TarNode.toString()).get(i).getSrcPort());
+    		System.out.println(TarNode.toString()+"  "+i+"  "+ForwardingPkt.map_outQueue.get(TarNode.toString()).get(i).getDstPort());
+    		*/
+    		if(ForwardingPkt.map_outQueue.get(TarNode.toString()).get(i).getSrcIP().equalsIgnoreCase(this.SrcIP) 
+    				&& ForwardingPkt.map_outQueue.get(TarNode.toString()).get(i).getDstIP().equalsIgnoreCase(this.DstIP)
+    				&& getMacAddress(ForwardingPkt.map_outQueue.get(TarNode.toString()).get(i).getSrcMAC()).equalsIgnoreCase(this.SrcMAC)
+    				&& getMacAddress(ForwardingPkt.map_outQueue.get(TarNode.toString()).get(i).getDstMAC()).equalsIgnoreCase(this.DstMAC)
+    				&& ForwardingPkt.map_outQueue.get(TarNode.toString()).get(i).getSrcPort().equalsIgnoreCase(this.SrcPort)
+    				&& ForwardingPkt.map_outQueue.get(TarNode.toString()).get(i).getDstPort().equalsIgnoreCase(this.DstPort)){
+    			
+    			check = i;
+    			break;
+    		}
+    		
+    	}
+    	System.out.println("check"+check);
+    	return check;
+    }
+    
+    public static String getMacAddress(byte[] Addr) {
+
+        byte[] mac = Addr;
+        if (mac == null)
+            return null;
+
+        StringBuilder sb = new StringBuilder(18);
+        for (byte b : mac) {
+            if (sb.length() > 0)
+                sb.append(':');
+            sb.append(String.format("%02x", b));
+        }
+        return sb.toString();
+    }
+}

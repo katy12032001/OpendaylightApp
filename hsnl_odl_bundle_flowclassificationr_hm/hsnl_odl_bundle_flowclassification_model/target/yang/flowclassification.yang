@@ -1,0 +1,68 @@
+  module flowclassification {
+
+    yang-version 1;
+
+    namespace
+      "urn:nthu:hsnl:md:example";
+
+    prefix flowclassification;
+	
+    revision "2015-01-05" {
+      description
+        "flowclassification for 5-tuple transmission";
+    }
+
+    rpc transmit_5_tuple {
+      description "Get src_ip , dst_ip , src_port , dst_port , app_name , ipPort , app_persent";
+      input {
+        leaf src_ip {
+          type string;
+        }
+
+        leaf dst_ip {
+          type string;
+        }
+
+	leaf src_port {
+          type string;
+        }
+
+	leaf dst_port {
+          type string;
+        }
+
+	leaf app_name {
+          type string;
+        }
+        
+        leaf ipPort {
+          type string;
+        }
+        
+        leaf app_persent {
+          type string;
+        }
+      }
+
+      output {   
+        leaf echo-result {
+          type enumeration {
+             enum "reachable" {    
+               value 0;
+               description "Received reply";
+             }
+             enum "unreachable" {
+               value 1;
+               description "No reply during timeout";
+             }
+             enum "error" {
+               value 2;
+               description "Error happened";
+             }
+          }
+          description "Result types";
+        }
+      }
+    }  // rpc get flowclassification
+
+  }  

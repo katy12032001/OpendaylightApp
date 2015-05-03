@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1422598159255
+Build-Jdk: 1.7.0_76
+Built-By: katy
+Bundle-Activator: org.opendaylight.controller.md.internal.Flowclassifica
+ tionProvider
+Bundle-ManifestVersion: 2
+Bundle-Name: hsnl_flowclassification_provider
+Bundle-SymbolicName: org.opendaylight.controller.hsnl_flowclassification
+ _provider
+Bundle-Version: 0.0.1
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.opendaylight.controller.test;version="0.0.1"
+Import-Package: org.opendaylight.controller.sal.binding.api;version="[1.
+ 1,2)",org.opendaylight.controller.sal.common.util;version="[1.1,2)",org
+ .opendaylight.yang.gen.v1.urn.nthu.hsnl.md.example.rev150105,org.openda
+ ylight.yangtools.yang.binding;version="[0.6,1)",org.opendaylight.yangto
+ ols.yang.common;version="[0.6,1)",org.osgi.framework;version="[1.7,2)"
+Tool: Bnd-2.1.0.20130426-122213

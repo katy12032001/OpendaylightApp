@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wadl:application xmlns:wadl="http://wadl.dev.java.net/2009/02" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <wadl:doc xmlns:enunciate="http://enunciate.codehaus.org/" enunciate:generatedBy="Enunciate-1.28"/>
+  <wadl:grammars/>
+  <wadl:resources base="http://localhost:8080/full">
+    <wadl:resource path="/controller/nb/v2/transfer_fivetuple/transfer_fivetuple/{src_ip},{dst_ip},{src_port},{dst_port},{app},{ipport},{apppercent}">
+      <wadl:param name="src_ip" style="template"/>
+      <wadl:param name="dst_ip" style="template"/>
+      <wadl:param name="src_port" style="template"/>
+      <wadl:param name="dst_port" style="template"/>
+      <wadl:param name="app" style="template"/>
+      <wadl:param name="ipport" style="template"/>
+      <wadl:param name="apppercent" style="template"/>
+      <wadl:method name="PUT">
+        <wadl:request/>
+        <wadl:response>
+          <wadl:representation mediaType="*/*"/>
+          <wadl:representation mediaType="application/xml"/>
+        </wadl:response>
+      </wadl:method>
+    </wadl:resource>
+  </wadl:resources>
+</wadl:application>

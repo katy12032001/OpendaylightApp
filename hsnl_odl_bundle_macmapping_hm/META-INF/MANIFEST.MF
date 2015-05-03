@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1430633288802
+Build-Jdk: 1.7.0_80
+Built-By: katy
+Bundle-Activator: org.opendaylight.controller.Mac_Mapping.internal.Activ
+ ator
+Bundle-ManifestVersion: 2
+Bundle-Name: hsnl_Mac_Mapping
+Bundle-SymbolicName: org.opendaylight.controller.hsnl_Mac_Mapping
+Bundle-Version: 0.0.1
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.opendaylight.controller.Mac_Mapping.internal;uses:="
+ org.apache.felix.dm,org.opendaylight.controller.hosttracker,org.openday
+ light.controller.sal.core,org.slf4j";version="0.0.1"
+Import-Package: org.apache.felix.dm;version="[3.0,4)",org.opendaylight.c
+ ontroller.hosttracker;version="[0.5,1)",org.opendaylight.controller.hos
+ ttracker.hostAware;version="[0.5,1)",org.opendaylight.controller.sal.co
+ re;version="[0.8,1)",org.slf4j;version="[1.7,2)"
+Tool: Bnd-2.1.0.20130426-122213

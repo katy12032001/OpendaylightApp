@@ -1,0 +1,92 @@
+{
+  "swaggerVersion": "1.1",
+  "basePath": "http://localhost:8080/full",
+  "resourcePath": "FlowclassificationNorthbound",
+  "apis" : [
+    {
+      "path" : "/controller/nb/v2/transfer_fivetuple/transfer_fivetuple/{src_ip},{dst_ip},{src_port},{dst_port},{app},{ipport},{apppercent}",
+      "description" : "",
+      "operations" : [
+        {
+          "httpMethod" : "PUT",
+          "nickname" : "transfer_fivetuple",
+          "responseClass" : "string",
+          "parameters" : [
+            {
+              "name" : "src_ip",
+              "paramType" : "path",
+              "dataType" : "string",
+              "allowMultiple" : false
+            }
+            ,
+            {
+              "name" : "dst_ip",
+              "paramType" : "path",
+              "dataType" : "string",
+              "allowMultiple" : false
+            }
+            ,
+            {
+              "name" : "src_port",
+              "paramType" : "path",
+              "dataType" : "string",
+              "allowMultiple" : false
+            }
+            ,
+            {
+              "name" : "dst_port",
+              "paramType" : "path",
+              "dataType" : "string",
+              "allowMultiple" : false
+            }
+            ,
+            {
+              "name" : "app",
+              "paramType" : "path",
+              "dataType" : "string",
+              "allowMultiple" : false
+            }
+            ,
+            {
+              "name" : "ipport",
+              "paramType" : "path",
+              "dataType" : "string",
+              "allowMultiple" : false
+            }
+            ,
+            {
+              "name" : "apppercent",
+              "paramType" : "path",
+              "dataType" : "string",
+              "allowMultiple" : false
+            }
+        ],
+        "errorResponses" : [
+          {
+            "code" : 200,
+            "reason" : "Destination reachable"
+          },
+          {
+            "code" : 503,
+            "reason" : "Internal error"
+          },
+          {
+            "code" : 503,
+            "reason" : "Destination unreachable"
+          }
+        ],
+        "produces" : [
+          "*/*"
+          ,"application/xml"
+        ],
+        "consumes" : [
+          "*/*"
+          ,"application/xml"
+        ]
+      }
+      ]
+    }
+  ],
+  "models" : {
+  }
+}

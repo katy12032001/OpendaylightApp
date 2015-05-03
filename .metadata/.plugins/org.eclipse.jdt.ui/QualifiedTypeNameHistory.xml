@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.opendaylight.yangtools.yang.binding.NotificationListener"/>
+<fullyQualifiedTypeName name="org.opendaylight.controller.sal.binding.api.BindingAwareBroker.ProviderContext"/>
+<fullyQualifiedTypeName name="org.opendaylight.controller.sal.binding.api.AbstractBindingAwareProvider"/>
+<fullyQualifiedTypeName name="org.opendaylight.controller.md.sal.binding.api.DataBroker"/>
+<fullyQualifiedTypeName name="org.opendaylight.controller.sal.flowprogrammer.IFlowProgrammerListener"/>
+<fullyQualifiedTypeName name="org.opendaylight.controller.sal.packet.TCP"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api-docs title="FlowClassification REST API">
+  <data>
+  </data>
+  <soap>
+    <wsdls>
+    </wsdls>
+  </soap>
+  <rest baseAddress="http://localhost:8080/full" wadl="application.wadl">
+    <resources>
+      <resource name="/transfer_fivetuple/{src_ip},{dst_ip},{src_port},{dst_port},{app},{ipport},{apppercent}" subcontext="/controller/nb/v2/transfer_fivetuple">
+        <facets>
+          <facet>
+            <name>org.codehaus.enunciate.contract.jaxrs.Resource</name>
+            <value>FlowclassificationNorthbound</value>
+            <documentation><![CDATA[]]></documentation>
+          </facet>
+        </facets>
+        <additionalHeaderLabels>
+        </additionalHeaderLabels>
+        <operation name="PUT">
+          <contentType type="*/*" consumable="true" produceable="true"/>
+          <contentType type="application/xml" consumable="true" produceable="true"/>
+          <parameter name="src_ip" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="dst_ip" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="src_port" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="dst_port" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="app" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="ipport" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <parameter name="apppercent" type="path" xmlTypeName="string" xmlTypeNamespace="http://www.w3.org/2001/XMLSchema">
+            <![CDATA[(no documentation provided)]]>
+          </parameter>
+          <outValue>
+            
+            
+            <documentation><![CDATA[(no documentation provided)]]></documentation>
+          </outValue>
+          <statusCode code="200 OK">
+            <condition><![CDATA[Destination reachable]]></condition>
+            <additionalHeaders>
+            </additionalHeaders>
+          </statusCode>
+          <statusCode code="503 Service Unavailable">
+            <condition><![CDATA[Internal error]]></condition>
+            <additionalHeaders>
+            </additionalHeaders>
+          </statusCode>
+          <statusCode code="503 Service Unavailable">
+            <condition><![CDATA[Destination unreachable]]></condition>
+            <additionalHeaders>
+            </additionalHeaders>
+          </statusCode>
+        </operation>
+      </resource>
+    </resources>
+    <facets>
+      <facet>
+        <name>org.codehaus.enunciate.contract.jaxrs.Resource</name>
+        <value>FlowclassificationNorthbound</value>
+        <documentation><![CDATA[]]></documentation>
+      </facet>
+    </facets>
+  </rest>
+  <packages>
+    <package id="org.opendaylight.controller.flowclassification.northbound">
+    </package>
+  </packages>
+</api-docs>

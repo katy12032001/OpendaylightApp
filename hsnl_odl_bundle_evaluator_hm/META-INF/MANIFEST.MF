@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1430633288277
+Build-Jdk: 1.7.0_80
+Built-By: katy
+Bundle-Activator: org.opendaylight.controller.evaluator.internal.Activat
+ or
+Bundle-ManifestVersion: 2
+Bundle-Name: hsnl_evaluator
+Bundle-SymbolicName: org.opendaylight.controller.hsnl_evaluator
+Bundle-Version: 0.0.1
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.opendaylight.controller.evaluator;version="0.0.1"
+Import-Package: org.apache.felix.dm;version="[3.0,4)",org.opendaylight.c
+ ontroller.sal.core;version="[0.8,1)",org.slf4j;version="[1.7,2)"
+Tool: Bnd-2.1.0.20130426-122213

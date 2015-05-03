@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1430635138957
+Build-Jdk: 1.7.0_80
+Built-By: katy
+Bundle-Activator: org.opendaylight.controller.test.internal.Activator
+Bundle-ManifestVersion: 2
+Bundle-Name: hsnl_flowremoved
+Bundle-SymbolicName: org.opendaylight.controller.hsnl_flowremoved
+Bundle-Version: 0.0.1
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.opendaylight.controller.test;version="0.0.1"
+Import-Package: org.opendaylight.controller.sal.binding.api;version="[1.
+ 1,2)",org.opendaylight.controller.sal.compatibility;version="[1.1,2)",o
+ rg.opendaylight.controller.sal.core;version="[0.8,1)",org.opendaylight.
+ yang.gen.v1.urn.opendaylight.flow.service.rev130819;version="[1.1,2)",o
+ rg.opendaylight.yang.gen.v1.urn.opendaylight.flow.types.rev131026.flow.
+ mod.removed;version="[1.1,2)",org.opendaylight.yang.gen.v1.urn.opendayl
+ ight.inventory.rev130819;version="[1.1,2)",org.opendaylight.yang.gen.v1
+ .urn.opendaylight.model.match.types.rev131026.ethernet.match.fields;ver
+ sion="[1.1,2)",org.opendaylight.yang.gen.v1.urn.opendaylight.model.matc
+ h.types.rev131026.match;version="[1.1,2)",org.opendaylight.yangtools.co
+ ncepts;version="[0.6,1)",org.opendaylight.yangtools.yang.binding;versio
+ n="[0.6,1)",org.osgi.framework;version="[1.7,2)"
+Tool: Bnd-2.1.0.20130426-122213

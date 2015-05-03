@@ -1,0 +1,174 @@
+package org.opendaylight.controller.test.internal;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.io.RandomAccessFile;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
+
+import org.opendaylight.controller.sal.binding.api.AbstractBindingAwareConsumer;
+import org.opendaylight.controller.sal.binding.api.BindingAwareBroker.ConsumerContext;
+import org.opendaylight.controller.sal.binding.api.NotificationService;
+import org.opendaylight.controller.sal.core.Node;
+import org.opendaylight.yang.gen.v1.urn.opendaylight.flow.service.rev130819.FlowAdded;
+import org.opendaylight.yang.gen.v1.urn.opendaylight.flow.service.rev130819.FlowRemoved;
+import org.opendaylight.yang.gen.v1.urn.opendaylight.flow.service.rev130819.FlowUpdated;
+import org.opendaylight.yang.gen.v1.urn.opendaylight.flow.service.rev130819.NodeErrorNotification;
+import org.opendaylight.yang.gen.v1.urn.opendaylight.flow.service.rev130819.NodeExperimenterErrorNotification;
+import org.opendaylight.yang.gen.v1.urn.opendaylight.flow.service.rev130819.SalFlowListener;
+import org.opendaylight.yang.gen.v1.urn.opendaylight.flow.service.rev130819.SwitchFlowRemoved;
+import org.opendaylight.yangtools.concepts.Registration;
+import org.opendaylight.controller.flowcheck.FlowCheckInfo;
+import org.opendaylight.controller.flowcheck.SendFlowCheckInfo;
+import org.osgi.framework.BundleContext;
+
+public class Activator extends AbstractBindingAwareConsumer{
+	private Registration listener1Reg;
+	private static NotificationService notificationService;
+	private final FlowEventListener flowEventListener = new FlowEventListener();
+	public static int count;
+	public static int lock;
+	@Override
+    protected void startImpl(BundleContext context) {
+    	System.out.println("org.opendaylight.controller.test.internal\n"+"->start");
+    	count = 0 ;
+    }
+
+    @Override
+    public void onSessionInitialized(ConsumerContext session) {
+    	 notificationService = session.getSALService(NotificationService.class);
+    	 // For switch events
+    	 listener1Reg = notificationService.registerNotificationListener(flowEventListener);
+    	 
+    }
+    final class FlowEventListener implements SalFlowListener {
+		@Override
+		public void onFlowAdded(FlowAdded arg0) {
+			// TODO Auto-generated method stub
+			System.out.println("[Info] org.opendaylight.controller.test.internal\n"+"->sw add");
+		}
+	
+		@Override
+		public void onFlowRemoved(FlowRemoved arg0) {
+			// TODO Auto-generated method stub
+		}
+	
+		@Override
+		public void onFlowUpdated(FlowUpdated arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+	
+		@Override
+		public void onNodeErrorNotification(NodeErrorNotification arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+	
+		@Override
+		public void onNodeExperimenterErrorNotification(
+				NodeExperimenterErrorNotification arg0) {
+			// TODO Auto-generated method stub
+		}
+	
+		@Override
+		public void onSwitchFlowRemoved(SwitchFlowRemoved arg0) {
+			// TODO Auto-generated method stub
+			
+            try {
+	            
+	            
+				System.out.println("[Info] org.opendaylight.controller.test.internal\n"+"->sw removed");
+				
+				Node Tarnode = null;
+				String srcip = "Null";
+				String dstip = "Null";
+				String srcmac = "Null";
+				String dstmac = "Null";
+				String srcport = "Null";
+				String dstport = "Null";
+			
+				Tarnode = org.opendaylight.controller.sal.compatibility.NodeMapping.toADNode(arg0.getNode());
+				PrintWriter writerr = new PrintWriter(new FileWriter(new File("oooooo"),true));
+				writerr.println(arg0+"\n"+arg0.getMatch().getLayer3Match().toString()
+						+"\n"+arg0.getMatch().getEthernetMatch().getEthernetDestination().toString()
+						+"\n"+arg0.getMatch().getEthernetMatch().getEthernetSource().toString());
+				writerr.close();
+				System.out.println(arg0+"\n"+arg0.getMatch().getLayer3Match().toString()
+						+"\n"+arg0.getMatch().getEthernetMatch().getEthernetDestination().toString()
+						+"\n"+arg0.getMatch().getEthernetMatch().getEthernetSource().toString());
+				
+				MatchInfoParse mip = new MatchInfoParse(arg0.getMatch().getLayer3Match().toString());
+				mip.TransformToSrcIP();
+				srcip = mip.GetSolution();
+				mip.TransformToDstIP();
+				dstip = mip.GetSolution();
+				mip = new MatchInfoParse(arg0.getMatch().getEthernetMatch().getEthernetDestination().toString());
+				mip.TransformToDstMAC();
+				dstmac = mip.GetSolution();
+				mip = new MatchInfoParse(arg0.getMatch().getEthernetMatch().getEthernetSource().toString());
+				mip.TransformToSrcMAC();
+				srcmac = mip.GetSolution();
+				
+				if(arg0.getMatch().getLayer4Match()!=null){
+					mip = new MatchInfoParse(arg0.getMatch().getLayer4Match().toString());
+					mip.TransformToSrcPort();
+					srcport = mip.GetSolution();
+					mip.TransformToDstPort();
+					dstport = mip.GetSolution();
+				}
+				
+				count++;
+				if (count > 3){
+					if(lock ==0 ){
+						lock = 1;
+					}
+					else{
+						lock = 0;
+					}
+					
+					
+					File file=new File("remove_index");        
+	                
+		            //给該文件加锁     
+		            RandomAccessFile fis = new RandomAccessFile(file, "rw");   
+		            FileChannel fcin=fis.getChannel();    
+		            FileLock flin=null;    
+		            while(true){    
+		                try {  
+		                    flin = fcin.tryLock(); 
+		                    break;  
+		                } catch (Exception e) {  
+		                     System.out.println("有其他線程正在操作該文件，當前線程休眠10毫秒");   
+		                     Thread.sleep(10);    
+		                }  
+		                  
+		            } 
+		            PrintWriter writer2 = new PrintWriter(new FileWriter(new File("remove_index")));
+					writer2.println(lock);
+					writer2.close();
+					count = 0 ;
+					
+		            flin.release();    
+		            fcin.close();    
+		            fis.close();    
+		            fis=null;
+				} 
+				String file_name = null;
+				if(lock == 0) file_name = "removed0.txt";
+				else file_name = "removed1.txt";
+				
+				PrintWriter writer = new PrintWriter(new FileWriter(new File(file_name),true));
+				writer.println(Tarnode.toString()+","+srcip+","+dstip+","+srcmac+","+dstmac+","+srcport+","+dstport);
+				writer.close();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+}
