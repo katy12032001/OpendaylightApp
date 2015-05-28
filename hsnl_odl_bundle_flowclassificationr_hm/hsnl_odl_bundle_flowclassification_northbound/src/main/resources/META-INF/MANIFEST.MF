@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1430651932088
+Bnd-LastModified: 1432815167054
 Build-Jdk: 1.7.0_80
 Built-By: katy
 Bundle-ManifestVersion: 2
@@ -13,17 +13,17 @@ Export-Package: org.opendaylight.controller.flowclassification.northboun
 Ignore-Package: org.codehaus.enunciate.jaxrs
 Import-Package: org.opendaylight.controller.transfer_fivetuple.service.a
  pi,org.opendaylight.controller.sal.utils;version="[0.8,1)",javax.ws.rs;
- version="[1.1,2)",javax.ws.rs.core;version="[1.1,2)",com.sun.jersey.spi
- .container.servlet;version="[1.17,2)",com.fasterxml.jackson.jaxrs.base;
- version="[2.3,3)",org.slf4j;version="[1.7,2)",org.apache.commons.loggin
- g,org.opendaylight.yang.gen.v1.urn.ietf.params.xml.ns.yang.ietf.inet.ty
- pes.rev100924;version="[2010.9,2011)",javax.xml.bind,org.opendaylight.c
- ontroller.northbound.commons.exception;version="[0.4,1)",org.opendaylig
- ht.controller.northbound.commons.utils;version="[0.4,1)",org.opendaylig
- ht.controller.sal.packet.address;version="[0.8,1)",org.apache.catalina.
- filters;version="[7.0,8)",com.fasterxml.jackson.jaxrs.json;version="[2.
- 3,3)",org.opendaylight.controller.northbound.commons;version="[0.4,1)",
- javax.xml.bind.annotation
+ version="[1.1,2)",javax.ws.rs.core;version="[1.1,2)",org.opendaylight.c
+ ontroller.northbound.commons;version="[0.4,1)",com.fasterxml.jackson.ja
+ xrs.base;version="[2.3,3)",org.opendaylight.controller.northbound.commo
+ ns.exception;version="[0.4,1)",org.opendaylight.yang.gen.v1.urn.ietf.pa
+ rams.xml.ns.yang.ietf.inet.types.rev100924;version="[2010.9,2011)",java
+ x.xml.bind,org.apache.commons.logging,com.sun.jersey.spi.container.serv
+ let;version="[1.17,2)",org.slf4j;version="[1.7,2)",org.opendaylight.con
+ troller.sal.packet.address;version="[0.8,1)",org.opendaylight.controlle
+ r.northbound.commons.utils;version="[0.4,1)",com.fasterxml.jackson.jaxr
+ s.json;version="[2.3,3)",javax.xml.bind.annotation,org.apache.catalina.
+ filters;version="[7.0,8)"
 Originally-Created-By: Apache Maven Bundle Plugin
 Tool: Bnd-2.1.0.20130426-122213
 Web-ContextPath: /controller/nb/v2

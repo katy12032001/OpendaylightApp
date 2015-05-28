@@ -763,6 +763,47 @@ public class ForwardingPkt implements IListenDataPacket{
         }
     }
 
+    class ClientService extends Thread { 
+    	private Socket client;
+    	public ClientService(Socket c) throws IOException{ 
+    		client = c;
+    	}  
+    	public void run() { 
+    		try {
+    			if(client!=null) {
+    				ManualRateLimitServiceRemoteRequest flowRecordServiceRemoteRequest = new ManualRateLimitServiceRemoteRequest(
+    						client, map_outQueue);
+    				if(flowRecordServiceRemoteRequest.getIndex() != -1){
+                        String src_ip = flowRecordServiceRemoteRequest.getflowRulePriorityTuple().getSrcIP();
+                        String dst_ip = flowRecordServiceRemoteRequest.getflowRulePriorityTuple().getDstIP();
+                        
+                        String src_port = flowRecordServiceRemoteRequest.getflowRulePriorityTuple().getSrcPort();
+                        String dst_port = flowRecordServiceRemoteRequest.getflowRulePriorityTuple().getDstPort();
+                        
+                        byte[] srcMAC = map_outQueue.get(flowRecordServiceRemoteRequest.getTarNode()).get(flowRecordServiceRemoteRequest.getIndex()).getSrcMAC();
+                        byte[] dstMAC = map_outQueue.get(flowRecordServiceRemoteRequest.getTarNode()).get(flowRecordServiceRemoteRequest.getIndex()).getDstMAC();
+                        
+                        NodeConnector out_node = map_outQueue.get(flowRecordServiceRemoteRequest.getTarNode()).get(flowRecordServiceRemoteRequest.getIndex()).getOutNode();
+                       
+                        int queue = flowRecordServiceRemoteRequest.getPriority();
+                        String pro = flowRecordServiceRemoteRequest.getflowRulePriorityTuple().getProtocol();
+                        //synchronized(ratelimite_addflowLock){
+                        programFlow_ratelimit(src_ip, dst_ip, src_port, dst_port, dstMAC, srcMAC, out_node, queue, pro);
+                        //}
+                        if(flowRecordServiceRemoteRequest.get_have_exist_Index() == -1)
+                            map_outQueue.get(flowRecordServiceRemoteRequest.getTarNode()).add(new FlowInfo(dst_ip, 
+                            		src_ip, map_outQueue.get(flowRecordServiceRemoteRequest.getTarNode()).get(flowRecordServiceRemoteRequest.getIndex()).getRoute(), 
+                        			false, map_outQueue.get(flowRecordServiceRemoteRequest.getTarNode()).get(flowRecordServiceRemoteRequest.getIndex()).getInNode(),
+                        			out_node, dstMAC, srcMAC, dst_port, src_port));
+                    }
+    			}
+    			client.close();
+    		} catch (IOException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+    	}
+    }
     // GUI for Management
     public void ManualRateLimitService_get() {
         Thread ManualRateLimitServiceThread = new Thread(new Runnable() {
@@ -775,7 +816,19 @@ public class ForwardingPkt implements IListenDataPacket{
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
+                do {
+                    try {
+                        System.out.println("push 4");
+                        manualRateLimitServerClient = manualRateLimitServerSock.accept();
+                        System.out.println("push 3");
+                        ClientService service = new ClientService(manualRateLimitServerClient);
+                        service.start();
+                    } catch (IOException e) {
+                        // TODO Auto-generated catch bloc
+                        e.printStackTrace();
+                    }
+                } while (true);
+                /*
                 do {
                     try {
 
@@ -830,7 +883,7 @@ public class ForwardingPkt implements IListenDataPacket{
                     }
 
                 } while (true);
-
+				*/
             }
         });
         ManualRateLimitServiceThread.start();
