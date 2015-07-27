@@ -375,7 +375,7 @@ public class ForwardingPkt implements IListenDataPacket{
             //handle ipv4
             else if (nextPak instanceof IPv4) {
             	System.out.println("[INFO]  org.opendaylight.controller.dynamic_route.internal.ForwardingPkt.internal\n"
-                                + "-> Ipv4 Trans");
+                                + "-> Ipv4 Trans"+authIP);
                 IPv4 pkt_v4 = (IPv4) nextPak;
 
                 // Get ipv4 src & ipv4 dst address
@@ -406,14 +406,21 @@ public class ForwardingPkt implements IListenDataPacket{
                 System.out.println("[INFO]  org.opendaylight.controller.dynamic_route.internal.ForwardingPkt.internal\n"
                 		+"-> Check incoming port : " +str_tmp[0]);
                 
-                if (str_tmp[0].contains("22@") || str_tmp[0].contains("1@")) {
+                if (str_tmp[0].equalsIgnoreCase("OF|22") || str_tmp[0].equalsIgnoreCase("OF|1")) {
                     matchFlag = 1;
                     System.out.println("[INFO]  org.opendaylight.controller.dynamic_route.internal.ForwardingPkt.internal\n"
                                     + "-> Wifi Match");
                 }
-
-                if (matchFlag == 1 || nwDst.equalsIgnoreCase(authIP)
-                        || nwSrc.equalsIgnoreCase(authIP) || nwSrc.equalsIgnoreCase("0.0.0.0") || nwDst.equalsIgnoreCase("255.255.255.255")) {
+                
+                if(nwDst.equalsIgnoreCase(authIP) || nwSrc.equalsIgnoreCase(authIP)){
+                	matchFlag = 1;
+                	System.out.println("[INFO]  org.opendaylight.controller.dynamic_route.internal.ForwardingPkt.internal\n"
+                            + "-> auth Match"+ " " + nwDst +" "+nwSrc);
+                	
+                }
+                System.out.println("[INFO]  org.opendaylight.controller.dynamic_route.internal.ForwardingPkt.internal\n"
+                        + "-> "+ " " + nwDst +" "+nwSrc);
+                if (matchFlag == 1 || nwSrc.equalsIgnoreCase("0.0.0.0") || nwDst.equalsIgnoreCase("255.255.255.255")) {
                 	
                 	boolean check;
                 	

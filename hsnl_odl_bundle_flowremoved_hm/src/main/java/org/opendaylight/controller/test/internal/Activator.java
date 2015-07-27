@@ -143,7 +143,7 @@ public class Activator extends AbstractBindingAwareConsumer{
 		                    flin = fcin.tryLock(); 
 		                    break;  
 		                } catch (Exception e) {  
-		                     System.out.println("有其他線程正在操作該文件，當前線程休眠10毫秒");   
+		                     System.out.println("remove_index is locked");   
 		                     Thread.sleep(10);    
 		                }  
 		                  

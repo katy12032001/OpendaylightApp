@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1432815170925
+Bnd-LastModified: 1436183441773
 Build-Jdk: 1.7.0_80
 Built-By: katy
 Bundle-Activator: org.opendaylight.controller.Mac_Mapping.internal.Activ

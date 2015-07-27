@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="ControllerActionBuilder" key="selection"/>
+		<item value="authIP" key="selection"/>
 		<list key="findhistory">
+			<item value="authIP"/>
+			<item value="table"/>
 			<item value="ControllerActionBuilder"/>
 			<item value="setPriority"/>
 			<item value="AuthService_get"/>
 			<item value="mapqueueLock"/>
 			<item value="ratelimite_addflowLock"/>
 			<item value="programFlow_ratelimit"/>
-			<item value="public static Object switchPortLock = new Object();"/>
-			<item value="order011"/>
 		</list>
 		<list key="replacehistory">
 		</list>

@@ -81,7 +81,7 @@ public class FlowclassificationServiceImpl extends AbstractBindingAwareConsumer 
             e.printStackTrace();
         }
         System.out.println("Get userlist2");
-        int match_user = 0;
+        int match_user = 1;
         for(int i = 0;i<userList.size();i++){
         	if(userList.get(i).getIpAddress().equalsIgnoreCase(SRC_IP)){
         		match_user = 1;

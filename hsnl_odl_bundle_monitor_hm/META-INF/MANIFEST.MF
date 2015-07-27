@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1432815171573
+Bnd-LastModified: 1436188443384
 Build-Jdk: 1.7.0_80
 Built-By: katy
 Bundle-Activator: org.opendaylight.controller.monitor.internal.Activator
